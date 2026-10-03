@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: foundry-rs/foundry-toolchain@v1
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Contracts - build and test
+        working-directory: contracts
+        run: |
+          forge fmt --check
+          forge test -vv
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Typecheck all packages
+        run: pnpm typecheck
+
+      # Unit tests plus the end-to-end test, which starts its own anvil node.
+      - name: Core tests
+        run: pnpm test
+
+      - name: Web build
+        run: pnpm --filter @approval-guard/web build

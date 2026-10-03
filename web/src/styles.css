@@ -1,0 +1,46 @@
+:root {
+  --bg: #f7f7f8;
+  --card: #ffffff;
+  --text: #16171a;
+  --muted: #5f6470;
+  --border: #e3e4e8;
+  --accent: #2d5bff;
+  --high: #c4302b;
+  --medium: #b7791f;
+  --low: #2f855a;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111215;
+    --card: #1a1c20;
+    --text: #e8e9ec;
+    --muted: #9a9fab;
+    --border: #2c2f36;
+    --accent: #6d8cff;
+  }
+}
+body { margin: 0; background: var(--bg); }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+h1 { margin: 0 0 4px; }
+h2 { font-size: 1.1rem; margin: 0 0 12px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-top: 16px; overflow-x: auto; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.mono { font-family: ui-monospace, "SFMono-Regular", monospace; font-size: 0.9rem; }
+.error { color: var(--high); }
+button { background: var(--accent); color: #fff; border: 0; border-radius: 6px; padding: 7px 14px; cursor: pointer; font: inherit; }
+button.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+button:disabled { opacity: 0.6; cursor: default; }
+input, select { font: inherit; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--card); color: var(--text); }
+input { width: 110px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 8px; border-top: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; border-top: 0; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: #fff; }
+.badge.high { background: var(--high); }
+.badge.medium { background: var(--medium); }
+.badge.low { background: var(--low); }

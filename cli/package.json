@@ -1,0 +1,19 @@
+{
+  "name": "@approval-guard/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "scan": "tsx src/scan.ts",
+    "revoke": "tsx src/revoke.ts"
+  },
+  "dependencies": {
+    "@approval-guard/core": "workspace:*",
+    "viem": "^2.57.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15"
+  }
+}

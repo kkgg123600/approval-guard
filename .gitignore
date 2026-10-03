@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+
+# Foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# Personal study notes (not part of the project)
+notes/
